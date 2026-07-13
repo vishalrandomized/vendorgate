@@ -1,4 +1,7 @@
 [phases.setup]
+# Pin nixpkgs so nodejs_22 is >=22.12.0 (default alias resolves to 22.10.0).
+# 51ad838… ships Node 22.13.1 — https://github.com/NixOS/nixpkgs/commit/51ad838b03a05b1de6f9f2a0fffecee64a9788ee
+nixpkgsArchive = "51ad838b03a05b1de6f9f2a0fffecee64a9788ee"
 nixPkgs = ["python311", "nodejs_22"]
 
 [phases.install]
