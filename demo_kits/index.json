@@ -1,0 +1,49 @@
+{
+  "kits": [
+    {
+      "id": "F0_happy",
+      "fixture": "F0",
+      "title": "Happy path",
+      "expected_outcome": "approved",
+      "description": "Clean GST certificate, active registry entry, present bank proof, and matching mock bank directory entry.",
+      "has_bank_proof": true,
+      "path": "demo_kits/F0_happy"
+    },
+    {
+      "id": "EC-1_ownership",
+      "fixture": "EC-1",
+      "title": "Name mismatch ownership",
+      "expected_outcome": "pending",
+      "description": "Ownership uncertainty from mock bank registered name vs form beneficiary.",
+      "has_bank_proof": true,
+      "path": "demo_kits/EC-1_ownership"
+    },
+    {
+      "id": "EC-2_gstin_fraud",
+      "fixture": "EC-2",
+      "title": "Valid-checksum wrong state",
+      "expected_outcome": "rejected",
+      "description": "GSTIN has a correct checksum but encodes Maharashtra while the vendor address is in Karnataka; registry name also differs.",
+      "has_bank_proof": true,
+      "path": "demo_kits/EC-2_gstin_fraud"
+    },
+    {
+      "id": "EC-3_missing_bank",
+      "fixture": "EC-3",
+      "title": "Missing bank proof",
+      "expected_outcome": "pending",
+      "description": "Same clean company and bank data as F0, but bank proof is intentionally absent.",
+      "has_bank_proof": false,
+      "path": "demo_kits/EC-3_missing_bank"
+    },
+    {
+      "id": "EC-4_sanctions",
+      "fixture": "EC-4",
+      "title": "Sanctions near-match",
+      "expected_outcome": "pending",
+      "description": "Clean fixture except for an internal-only sanctions near-match on the legal name.",
+      "has_bank_proof": true,
+      "path": "demo_kits/EC-4_sanctions"
+    }
+  ]
+}

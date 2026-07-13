@@ -1,0 +1,21 @@
+{
+  "country": "IN",
+  "legal_name": "Kaveri Agro Supplies Private Limited",
+  "trade_name": "Kaveri Agro",
+  "tax_id": "27AABCK1234L1ZM",
+  "address": {
+    "line1": "No. 42, 3rd Cross, Indiranagar",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "postal_code": "560038"
+  },
+  "bank": {
+    "account_number": "50100345678901",
+    "ifsc": "HDFC0001234",
+    "beneficiary_name": "Kaveri Agro Supplies Private Limited"
+  },
+  "contact": {
+    "email": "accounts@kaveriagro.in",
+    "phone": "+91 9988776655"
+  }
+}

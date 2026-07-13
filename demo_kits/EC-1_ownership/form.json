@@ -1,0 +1,21 @@
+{
+  "country": "IN",
+  "legal_name": "Meridian Trading Private Limited",
+  "trade_name": "Meridian",
+  "tax_id": "27AABCM1234K1ZM",
+  "address": {
+    "line1": "Plot 14, Industrial Area",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "postal_code": "411001"
+  },
+  "bank": {
+    "account_number": "50100987654321",
+    "ifsc": "HDFC0005678",
+    "beneficiary_name": "Meridian Enterprises"
+  },
+  "contact": {
+    "email": "accounts@meridiantrading.in",
+    "phone": "+91 9876543210"
+  }
+}

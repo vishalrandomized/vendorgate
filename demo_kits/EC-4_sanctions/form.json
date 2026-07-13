@@ -1,0 +1,21 @@
+{
+  "country": "IN",
+  "legal_name": "Rosneft Trading Private Limited",
+  "trade_name": "Rosneft Trading",
+  "tax_id": "27AABCR1234K1ZH",
+  "address": {
+    "line1": "Unit 8, Trade Centre, Bandra Kurla Complex",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "postal_code": "400051"
+  },
+  "bank": {
+    "account_number": "50100456789012",
+    "ifsc": "HDFC0001234",
+    "beneficiary_name": "Rosneft Trading Private Limited"
+  },
+  "contact": {
+    "email": "accounts@rosnefttrading.in",
+    "phone": "+91 9876501234"
+  }
+}

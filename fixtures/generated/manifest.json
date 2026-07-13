@@ -1,0 +1,74 @@
+{
+  "fixtures": [
+    {
+      "name": "F0",
+      "title": "Happy path",
+      "expected_outcome": "approved",
+      "description": "Clean GST certificate, active registry entry, present bank proof, and matching mock bank directory entry.",
+      "gstin": "27AABCM1234K1ZM",
+      "expected_diagnostics": [],
+      "form_path": "fixtures/generated/F0/form.json",
+      "tax_certificate": "fixtures/generated/F0/tax_certificate.pdf",
+      "bank_proof": "fixtures/generated/F0/bank_proof.pdf"
+    },
+    {
+      "name": "EC-1",
+      "title": "Name mismatch ownership",
+      "expected_outcome": "pending",
+      "description": "Ownership uncertainty from mock bank registered name vs form beneficiary.",
+      "gstin": "27AABCM1234K1ZM",
+      "expected_diagnostics": [
+        "name_match__pennydrop"
+      ],
+      "form_path": "fixtures/generated/EC-1/form.json",
+      "tax_certificate": "fixtures/generated/EC-1/tax_certificate.pdf",
+      "bank_proof": "fixtures/generated/EC-1/bank_proof.pdf",
+      "notes": [
+        "EC-1 beneficiary 'Meridian Enterprises' vs bank registered 'MERIDIAN LOGISTICS' scores 0.63 via names.similarity, landing in the LLM band [0.6, 0.85).",
+        "Expected result is PENDING after LLM adjudication because the match is different or uncertain."
+      ]
+    },
+    {
+      "name": "EC-2",
+      "title": "Valid-checksum wrong state",
+      "expected_outcome": "rejected",
+      "description": "GSTIN has a correct checksum but encodes Maharashtra while the vendor address is in Karnataka; registry name also differs.",
+      "gstin": "27AABCK1234L1ZM",
+      "expected_diagnostics": [
+        "gstin_state_vs_address",
+        "registry_name_match"
+      ],
+      "form_path": "fixtures/generated/EC-2/form.json",
+      "tax_certificate": "fixtures/generated/EC-2/tax_certificate.pdf",
+      "bank_proof": "fixtures/generated/EC-2/bank_proof.pdf"
+    },
+    {
+      "name": "EC-3",
+      "title": "Missing bank proof",
+      "expected_outcome": "pending",
+      "description": "Same clean company and bank data as F0, but bank proof is intentionally absent.",
+      "gstin": "27AABCM1234K1ZM",
+      "expected_diagnostics": [
+        "doc_present__bank_proof"
+      ],
+      "form_path": "fixtures/generated/EC-3/form.json",
+      "tax_certificate": "fixtures/generated/EC-3/tax_certificate.pdf"
+    },
+    {
+      "name": "EC-4",
+      "title": "Sanctions near-match",
+      "expected_outcome": "pending",
+      "description": "Clean fixture except for an internal-only sanctions near-match on the legal name.",
+      "gstin": "27AABCR1234K1ZH",
+      "expected_diagnostics": [
+        "sanctions_near_match"
+      ],
+      "form_path": "fixtures/generated/EC-4/form.json",
+      "tax_certificate": "fixtures/generated/EC-4/tax_certificate.pdf",
+      "bank_proof": "fixtures/generated/EC-4/bank_proof.pdf",
+      "notes": [
+        "Sanctions pending item is internal-only; do not send vendor email when this is the only pending item."
+      ]
+    }
+  ]
+}
